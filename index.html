@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 20th Birthday Harshithaa! 🎉</title>
+    <!-- High-End Typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rose-gold: #b76e79;
+            --rose-gold-light: #e8b4b8;
+            --rose-gold-dark: #8b5a5f;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --light-pink: #ffb3c1;
+            --soft-pink: #ff8fab;
+            --pink: #fb6f92;
+            --shadow: rgba(139, 90, 95, 0.15);
+        }
+
+        /* --- Reset & Base --- */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--rose-gold-dark);
+            perspective: 1000px;
+        }
+
+        /* --- Main Container / Page Layout --- */
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(1.1) translateZ(0);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .page.active {
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+            z-index: 10;
+        }
+
+        /* --- COUNTDOWN PAGE --- */
+        #countdown-intro {
+            background: var(--white);
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pink), var(--soft-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: countPulse 1s ease-in-out;
+        }
+
+        @keyframes countPulse {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .countdown-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            color: var(--pink);
+            margin-top: 20px;
+        }
+
+        /* --- Animations --- */
+        @keyframes floatElement {
+            0% {
+                transform: translateY(0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.5) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes rosePulse {
+            0%, 100% {
+                box-shadow: 0 0 15px var(--pink), 0 0 30px var(--light-pink);
+            }
+            50% {
+                box-shadow: 0 0 30px var(--pink), 0 0 60px var(--light-pink);
+            }
+        }
+
+        /* --- Hero Page --- */
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            font-style: italic;
+            background: linear-gradient(to right, var(--pink), var(--soft-pink), var(--light-pink), var(--pink));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-sub {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .btn-rose {
+            position: relative;
+            padding: 15px 35px;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, var(--pink), var(--soft-pink));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: 0.5s;
+            animation: rosePulse 2s infinite;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .btn-rose:hover {
+            background: linear-gradient(135deg, var(--soft-pink), var(--light-pink));
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        /* --- Message Card --- */
+        .message-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            padding: clamp(30px, 8vw, 60px) clamp(20px, 6vw, 40px);
+            border-radius: 30px;
+            max-width: 90%;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px var(--shadow);
+            border: 2px solid var(--light-pink);
+        }
+
+        .step-content {
+            display: none;
+            min-height: 100px;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInScale 0.8s forwards;
+        }
+
+        .step-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .step-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.3rem, 5vw, 2.2rem);
+            margin-bottom: 20px;
+            color: var(--rose-gold-dark);
+            font-weight: 700;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(251, 111, 146, 0.3);
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .dot.active {
+            background: var(--pink);
+            transform: scale(1.5);
+            box-shadow: 0 0 10px var(--pink);
+        }
+
+        /* --- CAKE PAGE --- */
+        .cake-container {
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .cake {
+            font-size: clamp(6rem, 20vw, 10rem);
+            position: relative;
+            animation: cakeBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes cakeBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .candle {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(2rem, 8vw, 3rem);
+            animation: candleFlicker 1.5s ease-in-out infinite;
+            transition: all 0.5s;
+        }
+
+        .candle.blown {
+            opacity: 0;
+            transform: translateX(-50%) scale(0);
+        }
+
+        @keyframes candleFlicker {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* --- Goodbye/Hello Page --- */
+        .content-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            padding: clamp(30px, 8vw, 50px) clamp(20px, 6vw, 40px);
+            border-radius: 30px;
+            max-width: 90%;
+            width: 100%;
+            box-shadow: 0 20px 60px var(--shadow);
+            border: 2px solid var(--light-pink);
+        }
+
+        .big-emoji {
+            font-size: clamp(3rem, 12vw, 5rem);
+            margin: 15px 0;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+
+        /* --- Countdown Page --- */
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(30px);
+            padding: clamp(30px, 8vw, 50px);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px var(--shadow);
+            border: 2px solid var(--light-pink);
+            max-width: 90%;
+        }
+
+        .age-display {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 15vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--pink), var(--soft-pink), var(--light-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 15px 0;
+        }
+
+        /* --- ENVELOPE PAGE --- */
+        #envelope-page {
+            background: var(--white);
+            padding-bottom: 100px;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: min(320px, 85vw);
+            height: min(200px, 50vw);
+            margin: 30px auto;
+            cursor: pointer;
+        }
+
+        .envelope-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-pink), var(--pink));
+            border-radius: 10px;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .envelope-flap {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0;
+            left: 0;
+            border-left: 50% solid transparent;
+            border-right: 50% solid transparent;
+            border-top: 50% solid var(--soft-pink);
+            transform-origin: top center;
+            transition: transform 0.8s ease;
+            z-index: 3;
+        }
+
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(-180deg);
+        }
+
+        .letter-card {
+            position: absolute;
+            width: min(300px, 80vw);
+            background: white;
+            border-radius: 15px;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.8s ease 0.3s;
+            z-index: 2;
+            padding: 20px 15px;
+            max-height: 350px;
+            overflow-y: auto;
+        }
+
+        .envelope-wrapper.open .letter-card {
+            transform: translateX(-50%) translateY(-250px);
+        }
+
+        .letter-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1rem, 3.5vw, 1.3rem);
+            color: var(--rose-gold-dark);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .envelope-hint {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--pink);
+            margin-top: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .envelope-continue-btn {
+            margin-top: 380px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- Final Page --- */
+        .final-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: clamp(30px, 8vw, 50px) clamp(20px, 6vw, 40px);
+            border-radius: 30px;
+            max-width: 90%;
+            width: 100%;
+            box-shadow: 0 20px 60px var(--shadow);
+            border: 2px solid var(--light-pink);
+        }
+
+        .photo-frame {
+    width: min(250px, 70vw);
+    height: min(250px, 70vw);
+    border-radius: 20px;
+    margin: 20px auto;
+    border: 3px solid var(--pink);
+    box-shadow: 0 10px 30px var(--shadow);
+    overflow: hidden;
+}
+        .treat-box {
+            background: rgba(251, 111, 146, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 25px;
+            border: 2px dashed var(--pink);
+        }
+
+        .treat-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 5vw, 2.3rem);
+            color: var(--pink);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* --- Balloons --- */
+        .balloon {
+            position: absolute;
+            bottom: -200px;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            z-index: 100;
+            animation: balloonFloat 8s ease-in forwards;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            width: 8px;
+            height: 5px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            width: 1px;
+            height: 80px;
+            background: rgba(139, 90, 95, 0.4);
+        }
+
+        .balloon-shine {
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 12px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            filter: blur(2px);
+            transform: rotate(30deg);
+        }
+
+        @keyframes balloonFloat {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-130vh);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .message-card, .content-card, .countdown-container, .final-card {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- COUNTDOWN INTRO (3 seconds) -->
+    <section id="countdown-intro" class="page active">
+        <div class="countdown-number" id="count-number">3</div>
+        <p class="countdown-text">Get ready for something special...</p>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section id="hero-page" class="page">
+        <div id="particle-container" style="position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none;"></div>
+        <h1 class="hero-title">Happy 20th Birthday!</h1>
+        <p class="hero-sub">✨ Harshithaa's Special Day ✨</p>
+        <button class="btn-rose" onclick="transitionTo('message-slider-page')">🎁 Open Your Gift</button>
+    </section>
+
+    <!-- MESSAGE SLIDER SECTION -->
+    <section id="message-slider-page" class="page">
+        <div id="slider-particles" style="position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none;"></div>
+        <div class="message-card">
+            <div id="step-1" class="step-content active">
+                <h2 class="step-text">Hey Harshithaa! 🌻</h2>
+                <p style="color: var(--rose-gold-dark); margin-bottom: 15px; font-size: clamp(0.9rem, 3vw, 1rem);">Today is extra special...</p>
+                <button class="btn-rose" onclick="nextStep(2)">Tell Me!</button>
+            </div>
+            <div id="step-2" class="step-content">
+                <h2 class="step-text">It's July 17th!</h2>
+                <p style="color: var(--rose-gold-dark); margin-bottom: 15px; font-size: clamp(0.9rem, 3vw, 1rem);">The day an amazing soul was born ✨</p>
+                <button class="btn-rose" onclick="nextStep(3)">Continue</button>
+            </div>
+            <div id="step-3" class="step-content">
+                <h2 class="step-text">Make a wish! 🎂</h2>
+                <div class="cake-container">
+                    <div class="candle" id="candle">🕯️</div>
+                    <div class="cake">🎂</div>
+                </div>
+                <button class="btn-rose" onclick="blowCandle()">💨 Blow the Candles</button>
+            </div>
+            <div class="slider-dots">
+                <div id="dot-1" class="dot active"></div>
+                <div id="dot-2" class="dot"></div>
+                <div id="dot-3" class="dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOODBYE TEENAGE / HELLO TWENTIES PAGE -->
+    <section id="goodbye-page" class="page">
+        <div id="goodbye-particles" style="position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none;"></div>
+        <div class="content-card">
+            <div class="big-emoji">👋</div>
+            <h2 style="font-family: 'Dancing Script'; font-size: clamp(2rem, 7vw, 3.5rem); color: var(--pink); margin: 15px 0;">
+                Goodbye Teenage Years!
+            </h2>
+            <p style="font-size: clamp(0.95rem, 3.5vw, 1.2rem); color: var(--rose-gold-dark); line-height: 1.7; margin: 15px 0;">
+                You've had an amazing journey from 13 to 19! 🎉<br>
+                All those memories, experiences, and growth... incredible! 💫
+            </p>
+            <div style="margin: 30px 0; font-size: clamp(2rem, 8vw, 3rem);">✨ 🎊 ✨</div>
+            <div class="big-emoji" style="animation-delay: 0.5s;">👋</div>
+            <h2 style="font-family: 'Dancing Script'; font-size: clamp(2rem, 7vw, 3.5rem); color: var(--pink); margin: 15px 0;">
+                Hello Twenties!
+            </h2>
+            <p style="font-size: clamp(0.95rem, 3.5vw, 1.2rem); color: var(--rose-gold-dark); line-height: 1.7; margin: 15px 0;">
+                Welcome to the most exciting decade of your life! 🎈<br>
+                Get ready for adventures, dreams, and endless possibilities! 🌟
+            </p>
+            <button class="btn-rose" style="margin-top: 25px;" onclick="transitionTo('countdown-page')">Continue</button>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN AGE PAGE -->
+    <section id="countdown-page" class="page">
+        <div id="countdown-particles" style="position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none;"></div>
+        <div class="countdown-container">
+            <h2 style="font-family: 'Dancing Script'; font-size: clamp(1.5rem, 5vw, 2.5rem); color: var(--pink); margin-bottom: 15px;">
+                🎂 From 2006 to 2026... 🎂
+            </h2>
+            <div class="age-display">20!</div>
+            <p style="font-size: clamp(1rem, 4vw, 1.3rem); color: var(--rose-gold-dark); margin-top: 15px;">
+                Two decades of being absolutely amazing! ✨
+            </p>
+            <button class="btn-rose" style="margin-top: 30px;" onclick="startCelebration()">🎉 Let's Celebrate!</button>
+        </div>
+    </section>
+
+    <!-- FINAL MESSAGE PAGE -->
+    <section id="message-page" class="page">
+        <div id="message-particles" style="position: absolute; width: 100%; height: 100%; top:0; left:0; pointer-events: none;"></div>
+        <div class="content-card">
+            <h2 style="font-family: 'Dancing Script'; font-size: clamp(1.8rem, 6vw, 3.5rem); color: var(--pink); margin-bottom: 15px;">
+                Dear Harshithaa, 🌻
+            </h2>
+            <p style="font-size: clamp(0.9rem, 3.5vw, 1.2rem); line-height: 1.7; color: var(--rose-gold-dark);">
+                Happy 20th Birthday to one of the most incredible friends anyone could ever have! 🎊<br><br>
+                Your kindness, your dreams, your spirit—everything about you is truly special. 🌻<br><br>
+                May this year bring you:<br>
+                ✈️ Success in your Aeronautical Engineering journey<br>
+                🕉️ Blessings on your path to the 12 Jyotirlingas<br>
+                🌻 Endless sunshine and smiles<br>
+                💛 Adventures that take your breath away<br>
+                ✨ All your dreams coming true<br><br>
+                Thank you for being such an amazing friend. Here's to 20 wonderful years and countless more memories together! 🥳💫
+            </p>
+            <button class="btn-rose" style="margin-top: 30px; animation: none;" onclick="transitionTo('envelope-page')">One Last Surprise! 💌</button>
+        </div>
+    </section>
+
+    <!-- ENVELOPE PAGE -->
+    <section id="envelope-page" class="page">
+        <h2 style="font-family: 'Dancing Script'; font-size: clamp(1.8rem, 6vw, 3rem); color: var(--pink); margin-bottom: 15px;">
+            You've Got Mail! 💌
+        </h2>
+        <div class="envelope-wrapper" id="envelope-wrapper" onclick="openEnvelope()">
+            <div class="envelope-container">
+                <div class="envelope-back"></div>
+                <div class="letter-card">
+                    <p class="letter-text">
+                        <strong style="color: var(--pink); font-size: clamp(1.3rem, 4vw, 1.8rem);">A Special Message For You! ✨</strong><br><br>
+                        "Friends like you make life beautiful"<br><br>
+                        You bring sunshine wherever you go! 🌟<br><br>
+                        Your smile lights up the world,<br>
+                        your kindness touches hearts,<br>
+                        and your friendship is a treasure! 💖<br><br>
+                        May every day be filled with love, laughter, and endless joy! 🌻
+                    </p>
+                </div>
+                <div class="envelope-flap"></div>
+            </div>
+        </div>
+        <p class="envelope-hint" id="envelope-hint">👆 Click to open!</p>
+        <div class="envelope-continue-btn">
+            <button class="btn-rose" onclick="transitionTo('final-page')">Continue</button>
+        </div>
+    </section>
+
+    <!-- FINAL PAGE -->
+    <section id="final-page" class="page" style="padding: 40px 20px;">
+        <div id="final-bg-elements" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1;"></div>
+
+        <div class="final-card">
+            <h2 style="font-family: 'Dancing Script'; font-size: clamp(2rem, 7vw, 4rem); color: var(--pink); margin-bottom: 20px;">
+                A Special Memory 💝
+            </h2>
+
+            <!-- Photo Frame -->
+           <!-- Photo Frame -->
+            <!-- Photo Frame -->
+        <!-- Photo Frame -->
+<div class="photo-frame" style="background: linear-gradient(135deg, var(--light-pink), var(--soft-pink));">
+    <img src="Bday.png" alt="Harshithaa" style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;">
+</div>
+            <p style="font-family: 'Dancing Script', cursive; font-size: clamp(1.2rem, 4vw, 1.5rem); color: var(--pink); margin: 10px 0;">
+                Your Beautiful Smile Here! ✨
+            </p>
+
+            <h3 style="font-family: 'Dancing Script'; font-size: clamp(1.8rem, 6vw, 3rem); color: var(--pink); margin: 25px 0 15px;">
+                A Year Full of Blessings 💝
+            </h3>
+
+            <p style="font-size: clamp(0.95rem, 3.5vw, 1.1rem); color: var(--rose-gold-dark); line-height: 1.9;">
+                May your 21st year be filled with:<br>
+                🌻 Sunflowers & endless smiles<br>
+                ✈️ Sky-high achievements<br>
+                🕉️ Spiritual blessings<br>
+                💛 Love & laughter<br>
+                🎓 Graduation success<br>
+                ✨ Dreams coming true
+            </p>
+
+            <!-- TREAT REMINDER -->
+            <div class="treat-box">
+                <div style="font-size: clamp(2rem, 8vw, 2.5rem); margin-bottom: 10px;">🍰 🎂 🍕</div>
+                <p class="treat-text">Hey Birthday Girl! 🎉</p>
+                <p style="font-size: clamp(0.95rem, 3.5vw, 1.2rem); color: var(--rose-gold-dark); margin: 12px 0; line-height: 1.6;">
+                    You know the birthday rules, right?<br>
+                    <strong>The birthday person gives the treat!</strong> 😄<br><br>
+                    So... when are we going? 😋🎈<br>
+                    I'm already making a list! 📝✨
+                </p>
+            </div>
+
+            <button class="btn-rose" style="margin-top: 30px; animation: none;" onclick="location.reload()">🔄 Experience The Magic Again</button>
+        </div>
+    </section>
+
+    <audio id="birthday-audio" loop>
+    <source src="Birthday.mp3" type="audio/mpeg">
+</audio>
+
+    <script>
+        // --- COUNTDOWN INTRO (3 seconds) ---
+       // --- COUNTDOWN INTRO (3 seconds) ---
+let countdownValue = 3;
+const countdownInterval = setInterval(() => {
+    countdownValue--;
+    if (countdownValue > 0) {
+        document.getElementById('count-number').textContent = countdownValue;
+        document.getElementById('count-number').style.animation = 'none';
+        setTimeout(() => {
+            document.getElementById('count-number').style.animation = 'countPulse 1s ease-in-out';
+        }, 10);
+    } else {
+        clearInterval(countdownInterval);
+        // Start playing birthday music after countdown
+        const audio = document.getElementById('birthday-audio');
+        audio.play().catch(err => {
+            console.log('Audio autoplay blocked. User interaction needed.');
+        });
+        transitionTo('hero-page');
+    }
+}, 1000);
+        // --- Navigation Logic ---
+        function transitionTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            target.classList.add('active');
+
+            if (pageId === 'final-page') {
+                startFinalEffects();
+            }
+        }
+
+        // --- Slider Logic ---
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+            document.getElementById(`step-${step}`).classList.add('active');
+            document.getElementById(`dot-${step}`).classList.add('active');
+        }
+
+        // --- Blow Candle ---
+        function blowCandle() {
+            document.getElementById('candle').classList.add('blown');
+            spawnConfetti(document.body);
+            
+            // Automatically move to next page after candle is blown
+            setTimeout(() => {
+                transitionTo('goodbye-page');
+            }, 800);
+        }
+
+        // --- Envelope Open ---
+        let envelopeOpened = false;
+        function openEnvelope() {
+            if (!envelopeOpened) {
+                document.getElementById('envelope-wrapper').classList.add('open');
+                document.getElementById('envelope-hint').style.display = 'none';
+                envelopeOpened = true;
+            }
+        }
+
+        // --- Floating Elements ---
+        function createFloatingElement(containerId, emoji) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const element = document.createElement('div');
+            element.style.position = 'absolute';
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.bottom = '-10vh';
+            element.innerHTML = emoji;
+            element.style.fontSize = (Math.random() * 20 + 12) + 'px';
+            element.style.animation = `floatElement ${Math.random() * 3 + 3}s linear forwards`;
+            container.appendChild(element);
+            setTimeout(() => element.remove(), 6000);
+        }
+
+        const emojiSets = {
+            'particle-container': ['🌻', '✨', '🎈', '💛'],
+            'slider-particles': ['🎉', '🌸', '⭐', '🌻'],
+            'goodbye-particles': ['👋', '🎊', '🌻', '✨'],
+            'countdown-particles': ['🎂', '🎁', '🥳', '🌻'],
+            'message-particles': ['💛', '🌻', '✨', '🎉']
+        };
+
+        Object.keys(emojiSets).forEach(containerId => {
+            setInterval(() => {
+                const emojis = emojiSets[containerId];
+                createFloatingElement(containerId, emojis[Math.floor(Math.random() * emojis.length)]);
+            }, 400);
+        });
+
+        // --- Start Celebration ---
+       function startCelebration() {
+    spawnConfetti(document.body);
+    spawnBalloons(document.body);
+    setTimeout(() => {
+        transitionTo('message-page');
+    }, 2000);
+}
+        // --- Confetti ---
+        function spawnConfetti(container) {
+            const colors = ['#fb6f92', '#ff8fab', '#ffb3c1', '#ffd93d'];
+            for (let i = 0; i < 60; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'absolute';
+                    confetti.style.width = '8px';
+                    confetti.style.height = '8px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-20px';
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.animation = 'floatElement 3s linear forwards';
+                    container.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // --- Balloons ---
+        function spawnBalloons(targetContainer) {
+            const colorGradients = [
+                ['#fb6f92', '#ff8fab'],
+                ['#ffb3c1', '#ffd93d'],
+                ['#ff8fab', '#ffb3c1']
+            ];
+
+            const interval = setInterval(() => {
+                const b = document.createElement('div');
+                const shine = document.createElement('div');
+                b.classList.add('balloon');
+                shine.classList.add('balloon-shine');
+                const gradient = colorGradients[Math.floor(Math.random() * colorGradients.length)];
+                b.style.left = Math.random() * 95 + 'vw';
+                b.style.background = `radial-gradient(circle at 70% 30%, ${gradient[0]}, ${gradient[1]})`;
+                b.style.boxShadow = `inset -8px -8px 15px rgba(0,0,0,0.2), 0 8px 25px rgba(139, 90, 95, 0.3)`;
+                b.appendChild(shine);
+                targetContainer.appendChild(b);
+                setTimeout(() => b.remove(), 8000);
+            }, 400);
+            setTimeout(() => clearInterval(interval), 5000);
+        }
+
+        // --- Final Page Effects ---
+        function startFinalEffects() {
+            const container = document.getElementById('final-bg-elements');
+            
+            setInterval(() => {
+                if (document.getElementById('final-page').classList.contains('active')) {
+                    spawnBalloons(container);
+                }
+            }, 8000);
+
+            setInterval(() => {
+                if (document.getElementById('final-page').classList.contains('active')) {
+                    const s = document.createElement('div');
+                    s.innerHTML = '🌻';
+                    s.style.position = 'absolute';
+                    s.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                    s.style.top = Math.random() * 100 + '%';
+                    s.style.left = Math.random() * 100 + '%';
+                    s.style.opacity = '0';
+                    s.style.animation = 'floatElement 3s linear forwards';
+                    container.appendChild(s);
+                    setTimeout(() => s.remove(), 3000);
+                }
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>
